@@ -1,0 +1,18 @@
+<model-viewer src="Untitled 2.gltf" ar ar-modes="webxr scene-viewer quick-look" camera-controls poster="poster.webp" shadow-intensity="1">
+    <button class="Hotspot" slot="hotspot-1" data-position="0.41373794721526314m 0.1871037491700673m -2.1849519549422554m" data-normal="1.1568739563487031e-16m -0.32805322128048m -0.9446592422707253m" data-visibility-attribute="visible">
+        <div class="HotspotAnnotation">CHARGING DISPLAY LIGHTS</div>
+    </button><button class="Hotspot" slot="hotspot-2" data-position="0.13163168600754m 0.06637089576521014m -2.297652055166869m" data-normal="0.3028886747518552m 0.5003921852288673m -0.8110894597200384m" data-visibility-attribute="visible">
+        <div class="HotspotAnnotation">SOFT BUDS</div>
+    </button><button class="Hotspot" slot="hotspot-3" data-position="0.16661848597308765m 0.21989917617319293m -1.9528238948604328m" data-normal="-1.1568739563487031e-16m 0.32805322128048m 0.9446592422707253m" data-visibility-attribute="visible">
+        <div class="HotspotAnnotation">PAUSE/PLAY</div>
+    </button>
+    <div class="progress-bar hide" slot="progress-bar">
+        <div class="update-bar"></div>
+    </div>
+    <button slot="ar-button" id="ar-button">
+        View in your space
+    </button>
+    <div id="ar-prompt">
+        <img src="https://modelviewer.dev/shared-assets/icons/hand.png">
+    </div>
+</model-viewer>
