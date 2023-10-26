@@ -88,3 +88,92 @@ document.addEventListener("DOMContentLoaded", () => {
  
 
 });
+
+
+const elements = {
+  navMenu: document.getElementById('nav-menu'),
+  navToggle: document.getElementById('nav-toggle'),
+  navClose: document.getElementById('nav-close'),
+  navLink: document.querySelectorAll('.nav__link'),
+  header: document.getElementById('header'),
+  scrollUp: document.getElementById('scroll-up'),
+  sections: document.querySelectorAll('section[id]')
+};
+
+
+function toggleMenu() {
+  elements.navMenu.classList.toggle('show-menu');
+}
+
+if (elements.navToggle) {
+  elements.navToggle.addEventListener('click', toggleMenu);
+}
+
+if (elements.navClose) {
+  elements.navClose.addEventListener('click', toggleMenu);
+}
+
+
+elements.navLink.forEach(link => {
+  link.addEventListener('click', toggleMenu);
+});
+
+// Change Header Background on Scroll
+function checkHeaderScroll() {
+  if (window.scrollY >= 50) {
+      elements.header.classList.add('scroll-header');
+  } else {
+      elements.header.classList.remove('scroll-header');
+  }
+}
+
+window.addEventListener('scroll', checkHeaderScroll);
+
+
+function checkScrollUp() {
+  if (window.scrollY >= 200) {
+      elements.scrollUp.classList.add('show-scroll');
+  } else {
+      elements.scrollUp.classList.remove('show-scroll');
+  }
+}
+
+window.addEventListener('scroll', checkScrollUp);
+
+
+function highlightActiveLink() {
+  const yOffset = window.pageYOffset;
+
+  elements.sections.forEach(section => {
+      const sectionHeight = section.offsetHeight;
+      const sectionTop = section.offsetTop - 50;
+      const sectionId = section.getAttribute('id');
+
+      const correspondingLink = document.querySelector('.nav__menu a[href*=' + sectionId + ']');
+      
+      if (yOffset > sectionTop && yOffset <= sectionTop + sectionHeight) {
+          correspondingLink.classList.add('active-link');
+      } else {
+          correspondingLink.classList.remove('active-link');
+      }
+  });
+}
+
+window.addEventListener('scroll', highlightActiveLink);
+
+
+const sr = ScrollReveal({
+  distance: '60px',
+  duration: 2500,
+  delay: 400
+});
+
+sr.reveal('.home__header, .section__title', { delay: 600 });
+sr.reveal('.home__footer', { delay: 700 });
+sr.reveal('.home__img', { delay: 900, origin: 'top' });
+sr.reveal('.sponsor__img, .products__card, .footer__logo, .footer__content, .footer__copy', { origin: 'top', interval: 100 });
+sr.reveal('.specs__data, .discount__animate', { origin: 'left', interval: 100 });
+sr.reveal('.specs__img, .discount__img', { origin: 'right' });
+sr.reveal('.case__img', { origin: 'top' });
+sr.reveal('.case__data');
+
